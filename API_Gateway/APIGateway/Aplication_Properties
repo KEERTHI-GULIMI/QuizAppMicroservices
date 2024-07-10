@@ -1,0 +1,13 @@
+spring.application.name=APIGateway
+server.port=8721
+
+spring.cloud.gateway.discovery.locator.enabled=true
+spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+
+spring.cloud.gateway.routes[0].id=QUESTION_SERVER
+spring.cloud.gateway.routes[0].uri=http://localhost:8082
+spring.cloud.gateway.routes[0].predicates[0]=Path=/api/**
+
+spring.cloud.gateway.routes[1].id=QUIZ-SERVICE
+spring.cloud.gateway.routes[1].uri=http://localhost:8189
+spring.cloud.gateway.routes[1].predicates[0]=Path=/quiz/**
